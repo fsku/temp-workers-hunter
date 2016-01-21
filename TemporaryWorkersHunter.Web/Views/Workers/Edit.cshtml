@@ -1,0 +1,154 @@
+﻿@model TemporaryWorkersHunter.Entities.Worker
+
+
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                @($"{Model.FirstName} {Model.LastName}")
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Profile</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-4">
+                @*@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                        {
+                            <label for="file">Upload Image:</label>
+                            <input type="file" name="file" id="file" style="width: 100%;" />
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+                        }*@
+                @Ajax.BeginForm("changePhoto", new AjaxOptions { UpdateTargetId = "Result", OnSuccess = "onSucces", OnBegin = "onBegin", OnComplete = "onComplete" })
+                {
+                <div id="divLoading">
+                    <input type="file" name="file" />
+                    <input type="submit" value="Submit" />
+                    }
+
+                    <img class="img-thumbnail" src="http://placehold.it/300x300" alt="">
+                    @*                <div class="form-group">*@
+                    @*                    @Html.LabelFor(model => , htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    @*                    <div class="col-md-10">*@
+                    @*                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @*                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
+                    @*                    </div>*@
+                    @*                </div>*@
+                </div>
+                <div class="col-lg-6">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label>First name:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label>Last name:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label>PESEL:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.Pesel, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Pesel, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label>Relaince rating:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.RelianceRating, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RelianceRating, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Competences</h3>
+            </div>
+            <div class="panel-body">
+                @if (Model.WorkerCompetences != null)
+            {
+                foreach (var competence in Model.WorkerCompetences)
+                {
+                        <button type="button" class="btn btn-primary">competence.Name</button>
+                    }
+                }
+                <button type="button" class="btn btn-success"><i class="fa fa-fw fa-plus-circle"></i></button>
+            </div>
+        </div>
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        function onBegin()
+        {
+            $("#divLoading").html('<image src="~/Content/images/light_blue_material_design_loading.gif" alt="Loading, please wait" />');
+        }
+        function onComplete()
+        {
+            $("#divLoading").html("");
+        }
+        function onSuccess(context)
+        {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            $("#divLoading").html("Live rates at " + day + "." +
+        month + "." + year + " " + d.getHours() + ":" +
+        d.getMinutes() + ":" + d.getSeconds());
+        }
+    </script>

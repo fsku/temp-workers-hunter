@@ -1,0 +1,8 @@
+﻿@using TemporaryWorkersHunter.Entities
+@using TemporaryWorkersHunter.Web.Helpers
+@{
+    var items = typeof (OrderStatus).GetItems((int?)Model);
+}
+
+
+@Html.DropDownList("",items)

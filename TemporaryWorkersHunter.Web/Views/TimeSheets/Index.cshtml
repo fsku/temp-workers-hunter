@@ -1,0 +1,86 @@
+﻿@using System.Activities.Expressions
+@using GridMvc.Html
+@using TemporaryWorkersHunter.Entities
+@using TemporaryWorkersHunter.Web.ViewModels
+@model TemporaryWorkersHunter.Web.ViewModels.TimeSheetViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                @Model.Date
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @Html.Grid(Model.TimeSheetRows).Columns(columns =>
+                   {
+                       //                       columns.Add(ts => ts.Worker.Image).Titled("").Sortable(false).Encoded(false).Sanitized(false).RenderValueAs(worker => ImgRenderingHelper(ts));
+                       columns.Add(ts => ts.Worker.FirstName).Titled("First Name").Sortable(true);
+                       columns.Add(ts => ts.Worker.LastName).Titled("Last Name").Sortable(true);
+                       columns.Add(ts => ts.IsPresent).Titled("Present").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(ts => BoolRenderingHelper(ts.IsPresent)); 
+                       columns.Add(ts => ts.NumberOfHours).Titled("Hours");
+                       columns.Add(ts => ts.IsLate).Titled("Late").Encoded(false).Sanitized(false).RenderValueAs(ts => BoolRenderingHelper(ts.IsLate));
+
+                   }).WithPaging(20)
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+@*            <span class="pull-left">*@
+@*                <button value="Add worker" type="button" class="btn btn-success" onclick="location.href = '@Url.Action("Create", "Workers")'">*@
+@*                    Add worker*@
+@*                </button>*@
+@*            </span>*@
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@helper ImgRenderingHelper(TimeSheetRowViewModel timeSheetRow)
+{
+if (timeSheetRow.Worker.Image != null)
+{
+    //TODO proper photo
+    <img class="img-thumbnail" src="http://placehold.it/60x60" alt=@($"Photo of: {timeSheetRow.Worker.FirstName} {timeSheetRow.Worker.LastName}")>
+}
+else
+{
+        <img class="img-thumbnail" src="http://placehold.it/60x60" alt=@($"Photo of: {timeSheetRow.Worker.FirstName} {timeSheetRow.Worker.LastName}")>
+}}
+
+@helper BoolRenderingHelper(bool flag)
+{
+    if (flag)
+    {
+        <span class="label label-success">Yes</span>
+    }
+    else
+    {
+        <span class="label label-warning">No</span>
+    }
+}
+
+
+
+
+

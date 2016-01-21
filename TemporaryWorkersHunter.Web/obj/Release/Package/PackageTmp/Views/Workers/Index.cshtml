@@ -1,0 +1,76 @@
+﻿@using System.Activities.Expressions
+@using GridMvc.Html
+@using TemporaryWorkersHunter.Entities
+@model List<Worker>
+
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Black Market Agency Workers
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @Html.Grid(Model).Columns(columns =>
+                   {
+                       columns.Add(worker => worker.Image).Titled("").Sortable(false).Encoded(false).Sanitized(false).RenderValueAs(worker => ImgRenderingHelper(worker));
+                       columns.Add(worker => worker.FirstName).Titled("First Name").Sortable(true);
+                       columns.Add(worker => worker.LastName).Titled("Last Name").Sortable(true);
+                       columns.Add(worker => worker.RelianceRating).Titled("Reliance Rating").Sortable(true).Encoded(false).Sanitized(false).RenderValueAs(worker => RelianceRenderingHelper(worker));
+                       columns.Add().Titled("").Encoded(false).Sanitized(false).RenderValueAs(worker => @Html.ActionLink("Edit", "Edit", new { id = worker.Id }));
+                       columns.Add().Titled("").Encoded(false).Sanitized(false).RenderValueAs(worker => @Html.ActionLink("Details", "Details", new { id = worker.Id }));
+                       columns.Add().Titled("").Encoded(false).Sanitized(false).RenderValueAs(worker => @Html.ActionLink("Delete", "Delete", new { id = worker.Id }));
+
+
+                   }).WithPaging(20).Named("WorkersGrid")
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="pull-left">
+                <button value="Add worker" type="button" class="btn btn-success" onclick="location.href = '@Url.Action("Create", "Workers")'">
+                    Add worker
+                </button>
+            </span>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@helper ImgRenderingHelper(Worker worker)
+{
+if (worker.Image != null)
+{
+    //TODO proper photo
+    <img class="img-thumbnail" src="http://placehold.it/60x60" alt=@($"Photo of: {worker.FirstName} {worker.LastName}")>
+}
+else
+{
+        <img class="img-thumbnail" src="http://placehold.it/60x60" alt=@($"Photo of: {worker.FirstName} {worker.LastName}")>
+}}
+
+@helper RelianceRenderingHelper(Worker worker)
+{
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow= @worker.RelianceRating aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            <span class="sr-only">@(worker.RelianceRating/100) %</span>
+        </div>
+    </div>
+}
+

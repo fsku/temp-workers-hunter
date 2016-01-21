@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporaryWorkersHunter.Web", "TemporaryWorkersHunter.Web\TemporaryWorkersHunter.Web.csproj", "{919CFE09-8F86-4943-B973-5E40BA83E437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporaryWorkersHunter.Tests", "TemporaryWorkersHunter.Web.Tests\TemporaryWorkersHunter.Tests.csproj", "{82E03F60-B022-4F83-998B-B9BAFBE4631B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporaryWorkersHunter.Entities", "TemporaryWorkersHunter.Entities\TemporaryWorkersHunter.Entities.csproj", "{C1F4C19B-04AB-4690-B3D6-22098C7E90ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporaryWorkersHunter.Repository", "TemporaryWorkersHunter.Repository\TemporaryWorkersHunter.Repository.csproj", "{E0234F45-7E25-42E8-890E-745ECC48D112}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporaryWorkersHunter.Service", "TemporaryWorkersHunter.Services\TemporaryWorkersHunter.Service.csproj", "{6F1ABF36-F6D8-471B-85DF-E350E46997DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{919CFE09-8F86-4943-B973-5E40BA83E437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919CFE09-8F86-4943-B973-5E40BA83E437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919CFE09-8F86-4943-B973-5E40BA83E437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919CFE09-8F86-4943-B973-5E40BA83E437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E03F60-B022-4F83-998B-B9BAFBE4631B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E03F60-B022-4F83-998B-B9BAFBE4631B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E03F60-B022-4F83-998B-B9BAFBE4631B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E03F60-B022-4F83-998B-B9BAFBE4631B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F4C19B-04AB-4690-B3D6-22098C7E90ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F4C19B-04AB-4690-B3D6-22098C7E90ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F4C19B-04AB-4690-B3D6-22098C7E90ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F4C19B-04AB-4690-B3D6-22098C7E90ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0234F45-7E25-42E8-890E-745ECC48D112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0234F45-7E25-42E8-890E-745ECC48D112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0234F45-7E25-42E8-890E-745ECC48D112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0234F45-7E25-42E8-890E-745ECC48D112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1ABF36-F6D8-471B-85DF-E350E46997DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1ABF36-F6D8-471B-85DF-E350E46997DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1ABF36-F6D8-471B-85DF-E350E46997DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1ABF36-F6D8-471B-85DF-E350E46997DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://fsku.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TemporaryWorkersHunter.Entities\\TemporaryWorkersHunter.Entities.csproj
+		SccProjectName1 = TemporaryWorkersHunter.Entities
+		SccLocalPath1 = TemporaryWorkersHunter.Entities
+		SccProjectUniqueName2 = TemporaryWorkersHunter.Repository\\TemporaryWorkersHunter.Repository.csproj
+		SccProjectName2 = TemporaryWorkersHunter.Repository
+		SccLocalPath2 = TemporaryWorkersHunter.Repository
+		SccProjectUniqueName3 = TemporaryWorkersHunter.Services\\TemporaryWorkersHunter.Service.csproj
+		SccProjectName3 = TemporaryWorkersHunter.Services
+		SccLocalPath3 = TemporaryWorkersHunter.Services
+		SccProjectUniqueName4 = TemporaryWorkersHunter.Web.Tests\\TemporaryWorkersHunter.Tests.csproj
+		SccProjectName4 = TemporaryWorkersHunter.Web.Tests
+		SccLocalPath4 = TemporaryWorkersHunter.Web.Tests
+		SccProjectUniqueName5 = TemporaryWorkersHunter.Web\\TemporaryWorkersHunter.Web.csproj
+		SccProjectName5 = TemporaryWorkersHunter.Web
+		SccLocalPath5 = TemporaryWorkersHunter.Web
+	EndGlobalSection
+EndGlobal
